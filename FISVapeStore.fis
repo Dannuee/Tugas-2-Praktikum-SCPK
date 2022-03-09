@@ -1,0 +1,100 @@
+[System]
+Name='FISVapeStore'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=38
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Kelengkapan_Produk'
+Range=[0 10]
+NumMFs=3
+MF1='Tidak_Lengkap':'gaussmf',[1.77 -8.327e-17]
+MF2='Cukup_Lengkap':'gaussmf',[1.77 5]
+MF3='Lengkap':'gaussmf',[1.771 10]
+
+[Input2]
+Name='Kebersihan_Tempat'
+Range=[0 10]
+NumMFs=3
+MF1='Tidak_Bersih':'gaussmf',[1.769 -1.388e-16]
+MF2='Cukup_Bersih':'gaussmf',[1.769 5]
+MF3='Bersih':'gaussmf',[1.769 10]
+
+[Input3]
+Name='Interaksi_Vaporista'
+Range=[0 10]
+NumMFs=3
+MF1='Tidak_Ramah':'gaussmf',[1.769 -1.388e-16]
+MF2='Cukup_Ramah':'gaussmf',[1.769 5]
+MF3='Ramah':'gaussmf',[1.769 10]
+
+[Output1]
+Name='Rating'
+Range=[0 90]
+NumMFs=3
+MF1='Buruk':'trimf',[0 15 30]
+MF2='Cukup_Baik':'trimf',[30 45 60]
+MF3='Baik':'trimf',[60 75 90]
+
+[Output2]
+Name='Rekomendasi'
+Range=[0 90]
+NumMFs=3
+MF1='Tidak_Recommended':'trimf',[0 15 30]
+MF2='Cukup_Recommended':'trimf',[30 45 60]
+MF3='Sangat_Recommended':'trimf',[60 75 90]
+
+[Output3]
+Name='Review'
+Range=[0 90]
+NumMFs=3
+MF1='Jelek':'trimf',[0 15 30]
+MF2='Cukup':'trimf',[30 45 60]
+MF3='Bagus':'trimf',[60 75 90]
+
+[Rules]
+1 1 1, 1 0 0 (1) : 1
+1 2 1, 1 0 0 (1) : 1
+1 3 1, 1 0 0 (1) : 1
+1 1 1, 1 0 0 (1) : 1
+1 1 2, 1 0 0 (1) : 1
+1 1 3, 1 0 0 (1) : 1
+2 1 1, 1 0 0 (1) : 1
+3 1 1, 1 0 0 (1) : 1
+2 1 1, 1 0 0 (1) : 1
+2 2 2, 2 0 0 (1) : 1
+2 3 2, 2 0 0 (1) : 1
+2 2 3, 2 0 0 (1) : 1
+3 2 2, 2 0 0 (1) : 1
+3 3 2, 3 0 0 (1) : 1
+3 2 3, 3 0 0 (1) : 1
+2 3 3, 3 0 0 (1) : 1
+1 3 3, 2 0 0 (1) : 1
+3 1 3, 2 0 0 (1) : 1
+3 3 1, 2 0 0 (1) : 1
+3 3 3, 3 0 0 (1) : 1
+1 1 1, 1 1 1 (1) : 1
+2 2 2, 2 2 2 (1) : 1
+3 3 3, 3 3 3 (1) : 1
+2 3 3, 3 3 3 (1) : 1
+3 2 3, 3 3 3 (1) : 1
+3 3 2, 3 3 3 (1) : 1
+3 3 3, 2 3 3 (1) : 1
+3 3 3, 3 2 2 (1) : 1
+3 2 2, 2 2 2 (1) : 1
+2 3 2, 2 2 2 (1) : 1
+2 2 3, 2 2 2 (1) : 1
+2 2 2, 3 2 2 (1) : 1
+2 2 2, 2 3 2 (1) : 1
+2 1 1, 1 1 1 (1) : 1
+1 2 1, 1 1 1 (1) : 1
+1 1 2, 1 1 1 (1) : 1
+1 1 1, 2 1 1 (1) : 1
+1 1 1, 1 2 1 (1) : 1
